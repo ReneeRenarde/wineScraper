@@ -1,6 +1,6 @@
 # wineScraper
 
-View live page here: [Wine News Scraper]( )
+View live page here: [Wine News Scraper](https://winescraper.herokuapp.com/)
 
 Web app that lets users view and leave comments on the latest wine news. Using Mongoose and Cheerio to scrape news from another site.
 Saves the articles and Comments to a MongoDB Database, Using mongoose to link the comments to the article they are attached to.
