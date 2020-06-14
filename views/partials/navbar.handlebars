@@ -1,0 +1,24 @@
+<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark mb-3">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <span class="navbar-brand">
+       Web Scraper
+    </span>
+    <ul class="navbar-nav mr-auto">
+      <li id="all-nav" class="nav-item active">
+        <a class="nav-link" href="/" title="View all scraped articles"><i class="fas fa-newspaper"> All Articles</i></a>
+      </li>
+      <li id="comment-nav"  class="nav-item">
+        <a class="nav-link" title="View all articles that have comments on them." href="/commented"><i class="fas fa-comments"> Commented Articles</i></a>
+      </li> 
+    </ul>
+  </div>
+  <a class="btn btn-outline-light get-articles" href="/scrape" title="Scrapes any new articles from freecodecamp.com">
+    Get New Articles <i class="fas fa-newspaper"></i>
+  </a>
+  <button id="wipe-all" title="Warning clears the Database of all Articles/Comments" class="ml-2 badge badge-danger">
+    Erase All<i class="fas fa-trash p-2"></i>
+  </button>
+</nav>

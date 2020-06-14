@@ -1,0 +1,56 @@
+{{!-- This page will show articles with all the comments on them. on one page. --}}
+
+{{> navbar}}
+<div class="container-fluid">
+    {{#if commentedArticle}}
+        <div class="row mx-auto">
+            {{#each commentedArticle}}
+                <div class="card col-sm-6 col-md-4 col-lg-3">
+
+                    <a class="nav-link" href="{{link}}" title="Link to article: {{link}}">
+                    <img src="{{imgSrc}}" class="card-img-top" alt="Image for {{title}}">
+                    <small class="card-subtitle mt-1 m-0 text-muted">Click to view article.</small></a>
+
+                    <div class="card-body mx-0">
+
+                        <h3>{{title}}</h3>
+                        <p class="card-text py-3 border-bottom">Author: <span class="font-weight-bolder">{{author}}</span></p>
+                        <div id="card-comments">
+                            {{#if comments}}
+                                <ul class="m-0 px-1">
+                                    {{#each comments}}
+                                        <li>
+                                            <p title="Click the trash icon to delete comment.">
+                                                <button type="button" data-commentid="{{_id}}" data-articleid="{{../_id}}" title="Delete comment" class="badge badge-danger delete-comment">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                                {{text}}
+                                            </p>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            {{/if}}
+                        </div>
+
+                    </div>
+                    <div class="btn-group p-1 m-1" role="group">
+                        <button type="button" class="btn btn-sm btn-success" title="Comment on {{title}}" data-toggle="modal" data-target="#comment-modal" data-title="{{title}}" data-articleid="{{_id}}"><i class="fas fa-comments"> Comment</i></button>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+       <div class="alert alert-danger text-center p-5" role="alert">
+            There are currently no articles that have comments on them! <a href="/" class="alert-link">View all articles</a> to find an article.
+        </div>
+    {{/if}}
+</div>
+    {{!--place new comment modal --}}
+    {{> new-comment-modal}}
+<script>
+    // JS to remove class from nav only on the commented page, and apply the active class to the correct nav.
+    $(()=> {
+        $("#all-nav").removeClass("active");
+        $("#comment-nav").addClass("active");
+    });
+</script>
