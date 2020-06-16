@@ -1,6 +1,6 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
-const db = require('../models/index.js')
+const db = require('../models')
 module.exports = {
   findAllArticles: (req, res) => {
     db.Article.find({})
