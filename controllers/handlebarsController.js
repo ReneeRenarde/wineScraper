@@ -28,7 +28,7 @@ module.exports = {
       $('tr').each((i, element) => {
         const result = {}
         result.title = $(element).find('.wb-section-item-title').find('a').text().trim()
-        result.link = 'https://www.winebusiness.com/news/' + $(element).find('.wb-section-item-title').children('a').attr('href')
+        result.link = 'https://www.winebusiness.com' + $(element).find('.wb-section-item-title').children('a').attr('href')
         result.description = $(element).find('.wb-break-word').text().trim()
         wineArticles.push(result)
       })
