@@ -23,18 +23,21 @@ module.exports = {
   scrapeWineNews: (req, res) => {
     axios.get('https://www.winebusiness.com/news/').then(response => {
       // console.log(response.data)
+      const wineArticles = []
       const $ = cheerio.load(response.data)
-      $('div.wb-section-item-title').each((i, element) => {
+      $('tr').each((i, element) => {
         const result = {}
-        result.title = $(element).find('title').text().trim()
-        result.link = 'https://www.winebusiness.com/news/' + $(element).children('a').attr('href')
-        db.Article.create(result).then(articleDoc => console.log(articleDoc)).catch(err => console.log(err))
+        result.title = $(element).find('.wb-section-item-title').find('a').text().trim()
+        result.link = 'https://www.winebusiness.com/news/' + $(element).find('.wb-section-item-title').children('a').attr('href')
+        result.description = $(element).find('.wb-break-word').text().trim()
+        wineArticles.push(result)
       })
-      $('p.wb-break-word').each((i, element) => {
-        result.description = $(element).text().trim()
-      })
-      // after scrape take to the view articles without comments page.
-      res.redirect('/')
+      
+      db.Article.create(wineArticles).then(articleDoc => {
+        console.log(articleDoc)
+             // after scrape take to the view articles without comments page.
+        res.redirect('/')
+      }).catch(err => console.log(err)) 
     })
   }
 }
