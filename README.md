@@ -1,5 +1,5 @@
 # wineScraper
-(images\scraped.PNG)
+![Home](images\scraped.PNG)
 
 View live page here: [Wine News Scraper](https://winescraper.herokuapp.com/)
 
