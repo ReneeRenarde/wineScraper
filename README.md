@@ -1,5 +1,5 @@
 # wineScraper
-![Home](images\scraped.PNG?raw=true "Home Page")
+![Image of Home Screen](https://github.com/ReneeRenarde/wineScraper/blob/master/images/scraped.PNG)
 
 View live page here: [Wine News Scraper](https://winescraper.herokuapp.com/)
 
